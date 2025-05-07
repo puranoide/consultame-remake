@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 150px;
+    
+}
+
+header img{
+    width: 300px;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li{
+    margin: 0 15px;
+}
+header nav ul li a{
+    text-decoration: none;
+    color: rgb(58, 58, 58);
+}
+header nav ul li a:hover{
+    color: rgb(46, 194, 216);
+    transition: all 0.5s;
+}
