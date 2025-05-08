@@ -36,3 +36,70 @@ header nav ul li a:hover{
     color: rgb(46, 194, 216);
     transition: all 0.5s;
 }
+.herosection {
+    text-align: start;
+    background-color: rgb(243, 245, 255);
+    background-image: url('../img/heroimgv1.avif');
+    background-position: right top;
+    background-size: 1000px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.herosection h3{
+    font-size: 45px;
+    color: #2751A3;
+    padding: 80px 150px 0 170px;
+}
+.obtenConsultas01{
+    font-size: 65px;
+    color: #5778FA;
+    font-weight: bold;
+    padding: 0px 150px 0px 170px;
+    display: block;
+}
+
+.btnobtenPerfil01{
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #5778FA;
+    color: white;
+    width: 300px;
+    margin: 20px 150px 10px 170px;
+    border: solid;
+    display: block;
+    border-radius: 20px;
+}
+
+.alertbtn{
+    font-style: italic;
+    color: rgb(67, 67, 67);
+    font-size: 15px;
+    width: 350px;
+    margin: 0px 150px 50px 170px;
+}
+.alertbtn a{
+    color: rgb(67, 67, 67);
+}
+
+.texthero{
+    border: solid;
+    width: 650px;
+    font-size: 20px;
+    margin: 0px 150px 50px 170px;
+}
+.herosection img{
+    width: 300px;
+    margin: 0px 150px 0px 170px;
+}
+
+.texthero2{
+    width: 650px;
+    font-size: 15px;
+    margin: 0px 150px 50px 170px;
+}
