@@ -132,6 +132,7 @@ header nav ul li a:hover{
 .conteinerComofunciona div{
     width: 25%;
     height: 100%;
+    background-color:#5778FA;
 }
 
 .conteinerComofunciona .imgfunciona1{
@@ -143,4 +144,307 @@ header nav ul li a:hover{
     background-image: url('../img/imgcf2.avif');
     background-size: cover;
     background-position: center;
+}
+
+.conteinerComofunciona div h4{
+    color: white;
+    padding: 25px 50px;
+    font-size: 20px;
+    margin-top: 35px;
+}
+.conteinerComofunciona div p{
+    color: white;
+    padding: 25px 50px;
+    font-size: 15px;
+}
+
+.cntcreaperfil01{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cntcreaperfil01 .text01ctncp{
+    font-size: 20px;
+    color: rgb(58, 58, 58);
+    margin: 10px 150px 2px 170px;
+}
+.cntcreaperfil01 h5{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:#5778FA;
+    padding: 5px 300px;
+    margin: 0px 150px 10px 170px;
+}
+
+.ctnservicioBeneficiosCostos{
+    width: 100%;
+    background-color: rgb(243, 245, 255);
+}
+
+.ctnservicioBeneficiosCostos h2{
+    font-size: 40px;
+    font-weight: lighter;
+    color:rgb(100, 100, 100);
+    text-align: center;
+    padding: 80px 150px 0 170px;
+}
+.ctnservicioBeneficiosCostos h3{
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+    color: #5778FA;
+    padding: 0px 150px 60px 170px;
+}
+.ctniteminfoservicios{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.ctniteminfoservicios div{
+    width: 13%;
+    height: 300px;
+    margin: 10px 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+.ctnservicioBeneficiosCostos .txtcb01{
+    font-size: 18px;
+    text-align: center;
+    padding: 30px 20px;
+    color: rgb(0, 0, 0);
+}
+
+.ctnservicioBeneficiosCostos .txtcb02{
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    padding: 0px 20px;
+    color:#5778FA;
+}
+.ctnservicioBeneficiosCostos .txtcb03{
+    font-weight:lighter;
+    font-size: 22px;
+    text-align: center;
+    padding: 0px 20px;
+    color:#5778FA;
+}
+
+.ctnservicioBeneficiosCostos .txtcb04{
+    font-weight:lighter;
+    font-size: 22px;
+    text-align: center;
+    padding: 30px 20px;
+    color:rgb(67, 67, 67);
+
+}
+.btnobtenPerfil02{
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #5778FA;
+    color: white;
+    width: 300px;
+    margin: 20px auto 10px auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.alertbtn02{
+    font-style: italic;
+    color: rgb(67, 67, 67);
+    font-size: 15px;
+    width: 350px;
+    padding: 0px 25px;
+    margin: 0px auto 50px auto;
+}
+
+.ctnservicioBeneficiosCostos img{
+    width: 500px;
+    margin: 0px auto;
+    display: block;
+}
+
+.pre-contacto{
+    width: 100%;
+    height: 20vh;
+   background-image: url('../img/precontact.avif');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-color: #728df8b5;
+   background-blend-mode:color-burn;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pre-contacto h2{
+    font-size: 40px;
+    color: rgb(209, 209, 209);
+    margin: 0px 150px 0px 170px;
+}
+
+.pre-contacto h1{
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    margin: 0px 150px 0px 170px;
+}
+
+.contacto{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.contactodivform{
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    padding: 60px;
+    width: 35%;
+    height: 80vh;
+    margin: 100px 150px 0px 170px;
+}
+.contactodivform .txtform1{
+    font-size: 35px;
+    font-weight: bold;
+    color: #545454;
+}
+
+.contactodivform .txtform2{
+    font-size: 48px;
+    font-weight: bold;
+    color: #5778FA;
+}
+.contactodivform .txtform3{
+    font-size: 20px;
+    color: #545454;
+}
+.contactodivform form{
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+}
+
+.contactodivform form input{
+    margin: 10px 0px;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid;
+
+}
+.contactodivform form input:focus{
+    outline: none;
+}
+.contactodivform form input:focus::-webkit-input-placeholder { 
+    transform: translateY(-10px);
+    font-size: 0.8em;
+}
+
+.contactodivform form input[type="submit"]{
+    background-color: #5778FA;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 150px;
+    height: 50px;
+    margin: 30px 0 30px auto;
+    cursor: pointer;
+}
+
+
+.contactodivmail{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    width: 35%;
+    height: 70vh;
+    background-color: #5778FA;
+    margin: 100px 150px 0px 40px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column
+}
+
+.contactodivmail h1{
+    font-size:50px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+
+}
+
+.titulocontacto{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.detallecontacto{
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 40px;
+}
+
+footer{
+    width: 100%;
+    height: 30vh;
+    background-color: #5778FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+.cntfooter{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.cntfooter div{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cntfooter div img{
+    width: 250px;
+    margin: 0px 0px;
+}
+
+.cntfooter div a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 15px;
+    margin: 0px 0px;
+}
+.cntfooter div .tittlefooter{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 20px;
+    margin: 0px 0px;
+}
+
+.cntfooter2 p{
+    
+    margin: 10px 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
