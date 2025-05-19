@@ -448,3 +448,137 @@ footer{
     font-size: 20px;
     font-weight: bold;
 }
+
+/* Estilos base (ya provistos) */
+/* Tu código CSS original aquí... (omitido para no repetirlo en el canvas) */
+
+/* Media Queries para hacerlo responsive */
+
+@media screen and (max-width: 1200px) {
+  header {
+    padding: 30px 50px;
+  }
+  .herosection h3,
+  .obtenConsultas01,
+  .btnobtenPerfil01,
+  .alertbtn,
+  .texthero,
+  .texthero2,
+  .conteinerTituloComofunciona h3,
+  .conteinerTituloComofunciona div,
+  .cntcreaperfil01 .text01ctncp,
+  .cntcreaperfil01 h5,
+  .ctnservicioBeneficiosCostos h2,
+  .ctnservicioBeneficiosCostos h3 {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .contactodivform,
+  .contactodivmail {
+    margin: 100px 50px 0 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header nav ul {
+    flex-direction: column;
+  }
+  .herosection {
+    background-size: cover;
+    height: auto;
+    padding-bottom: 50px;
+  }
+  .conteinerComofunciona {
+    flex-direction: column;
+    height: auto;
+  }
+  .conteinerComofunciona div {
+    width: 100%;
+    height: 250px;
+  }
+  .ctniteminfoservicios {
+    flex-wrap: wrap;
+  }
+  .ctniteminfoservicios div {
+    width: 45%;
+  }
+  .contacto {
+    flex-direction: column;
+    height: auto;
+  }
+  .contactodivform,
+  .contactodivmail {
+    width: 90%;
+    margin: 20px auto;
+    height: auto;
+  }
+  .cntfooter {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .cntfooter div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .herosection h3,
+  .obtenConsultas01,
+  .texthero,
+  .texthero2 {
+    font-size: 22px;
+    width: auto;
+  }
+  .btnobtenPerfil01,
+  .btnobtenPerfil02 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pre-contacto h1,
+  .pre-contacto h2 {
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .contactodivform .txtform1,
+  .contactodivform .txtform2 {
+    font-size: 28px;
+  }
+  .contactodivform .txtform3 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  header img {
+    width: 200px;
+  }
+  .conteinerTituloComofunciona {
+    flex-direction: column;
+  }
+  .conteinerTituloComofunciona div {
+    padding: 10px 20px;
+  }
+  .ctniteminfoservicios div {
+    width: 90%;
+  }
+  .contactodivform form input[type="submit"] {
+    width: 100%;
+    margin: 30px 0;
+  }
+  footer {
+    height: auto;
+    padding: 20px;
+  }
+  .cntfooter2 p {
+    font-size: 16px;
+  }
+}
