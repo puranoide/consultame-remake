@@ -12,12 +12,12 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 150px;
+    padding: 15px 150px;
     
 }
 
 header img{
-    width: 300px;
+    width: 18%;
 }
 
 header nav ul{
@@ -29,6 +29,7 @@ header nav ul li{
     margin: 0 15px;
 }
 header nav ul li a{
+    font-size: 13px;
     text-decoration: none;
     color: rgb(58, 58, 58);
 }
@@ -41,19 +42,19 @@ header nav ul li a:hover{
     background-color: rgb(243, 245, 255);
     background-image: url('../img/heroimgv1.avif');
     background-position: right top;
-    background-size: 1000px;
+    background-size:800px;
     background-repeat: no-repeat;
     width: 100%;
     height: 90vh;
 }
 
 .herosection h3{
-    font-size: 45px;
+    font-size: 35px;
     color: #2751A3;
     padding: 80px 150px 0 170px;
 }
 .obtenConsultas01{
-    font-size: 65px;
+    font-size: 50px;
     color: #5778FA;
     font-weight: bold;
     padding: 0px 150px 0px 170px;
