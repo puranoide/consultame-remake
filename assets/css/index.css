@@ -1,67 +1,74 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header{
+/* Header Styles */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 150px;
-    
+    padding: 15px 5%;
 }
 
-header img{
-    width: 18%;
+header img {
+    width: 180px;
+    max-width: 100%;
 }
 
-header nav ul{
+header nav ul {
     list-style: none;
     display: flex;
 }
 
-header nav ul li{
+header nav ul li {
     margin: 0 15px;
 }
-header nav ul li a{
+
+header nav ul li a {
     font-size: 13px;
     text-decoration: none;
     color: rgb(58, 58, 58);
 }
-header nav ul li a:hover{
+
+header nav ul li a:hover {
     color: rgb(46, 194, 216);
     transition: all 0.5s;
 }
+
+/* Hero Section */
 .herosection {
     text-align: start;
     background-color: rgb(243, 245, 255);
     background-image: url('../img/heroimgv1.avif');
     background-position: right top;
-    background-size:800px;
+    background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
+    padding: 20px 5%;
 }
 
-.herosection h3{
+.herosection h3 {
     font-size: 35px;
     color: #2751A3;
-    padding: 80px 150px 0 170px;
+    margin-top: 40px;
 }
-.obtenConsultas01{
+
+.obtenConsultas01 {
     font-size: 50px;
     color: #5778FA;
     font-weight: bold;
-    padding: 0px 150px 0px 170px;
     display: block;
+    margin: 10px 0;
 }
 
-.btnobtenPerfil01{
+.btnobtenPerfil01 {
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
@@ -70,182 +77,206 @@ header nav ul li a:hover{
     border-radius: 5px;
     background-color: #5778FA;
     color: white;
-    width: 300px;
-    margin: 20px 150px 10px 170px;
+    max-width: 300px;
+    margin: 20px 0;
     border: solid;
     display: block;
     border-radius: 20px;
 }
 
-.alertbtn{
+.alertbtn {
     font-style: italic;
     color: rgb(67, 67, 67);
     font-size: 15px;
-    width: 350px;
-    margin: 0px 150px 50px 170px;
+    max-width: 350px;
+    margin: 0 0 50px 0;
 }
-.alertbtn a{
+
+.alertbtn a {
     color: rgb(67, 67, 67);
 }
 
-.texthero{
-    width: 650px;
+.texthero {
+    max-width: 650px;
     font-size: 20px;
-    margin: 0px 150px 50px 170px;
-}
-.herosection img{
-    width: 300px;
-    margin: 0px 150px 0px 170px;
+    margin: 0 0 50px 0;
 }
 
-.texthero2{
-    width: 650px;
+.herosection img {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+}
+
+.texthero2 {
+    max-width: 650px;
     font-size: 14px;
-    margin: 0px 150px 50px 170px;
+    margin: 0 0 50px 0;
     color: rgb(67, 67, 67);
     font-style: italic;
 }
-.conteinerTituloComofunciona{
+
+/* How It Works Section */
+.conteinerTituloComofunciona {
     background-color: rgb(243, 245, 255);
     display: flex;
     justify-content: space-between;
-}
-.conteinerTituloComofunciona h3{
-    padding: 20px 0 15px 170px;
-    color: #5778FA;
-    font-size: 30px;
+    flex-wrap: wrap;
+    padding: 20px 5%;
 }
 
-.conteinerTituloComofunciona div{
-    padding: 20px 170px 15px 0;
+.conteinerTituloComofunciona h3 {
+    color: #5778FA;
+    font-size: 30px;
+    margin-bottom: 15px;
 }
-.conteinerTituloComofunciona div img{
+
+.conteinerTituloComofunciona div {
+    display: flex;
+    align-items: center;
+}
+
+.conteinerTituloComofunciona div img {
     width: 30px;
     margin: 0 10px;
 }
 
-.conteinerComofunciona{
+.conteinerComofunciona {
     display: flex;
+    flex-wrap: wrap;
     background-color: rgb(243, 245, 255);
-    height:60vh;
+    min-height: auto;
 }
 
-.conteinerComofunciona div{
-    width: 25%;
-    height: 100%;
-    background-color:#5778FA;
+.conteinerComofunciona div {
+    width: 100%;
+    min-height: 300px;
+    background-color: #5778FA;
+    margin: 10px 0;
 }
 
-.conteinerComofunciona .imgfunciona1{
+.conteinerComofunciona .imgfunciona1 {
     background-image: url('../img/imgcf1.avif');
     background-size: cover;
     background-position: center;
 }
-.conteinerComofunciona .imgfunciona2{
+
+.conteinerComofunciona .imgfunciona2 {
     background-image: url('../img/imgcf2.avif');
     background-size: cover;
     background-position: center;
 }
 
-.conteinerComofunciona div h4{
+.conteinerComofunciona div h4 {
     color: white;
-    padding: 25px 50px;
+    padding: 25px;
     font-size: 20px;
     margin-top: 35px;
 }
-.conteinerComofunciona div p{
+
+.conteinerComofunciona div p {
     color: white;
-    padding: 25px 50px;
+    padding: 25px;
     font-size: 15px;
 }
 
-.cntcreaperfil01{
-    height: 40vh;
+/* Create Profile Section */
+.cntcreaperfil01 {
+    min-height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px 5%;
+    text-align: center;
 }
 
-.cntcreaperfil01 .text01ctncp{
+.cntcreaperfil01 .text01ctncp {
     font-size: 20px;
     color: rgb(58, 58, 58);
-    margin: 10px 150px 2px 170px;
+    margin: 10px 0;
 }
-.cntcreaperfil01 h5{
+
+.cntcreaperfil01 h5 {
     font-size: 20px;
     font-weight: bold;
-    text-align: center;
-    color:#5778FA;
-    padding: 5px 300px;
-    margin: 0px 150px 10px 170px;
+    color: #5778FA;
+    padding: 5px 0;
+    margin: 0 0 10px 0;
 }
 
-.ctnservicioBeneficiosCostos{
+/* Services Section */
+.ctnservicioBeneficiosCostos {
     width: 100%;
     background-color: rgb(243, 245, 255);
+    padding: 20px 5%;
 }
 
-.ctnservicioBeneficiosCostos h2{
+.ctnservicioBeneficiosCostos h2 {
     font-size: 40px;
     font-weight: lighter;
-    color:rgb(100, 100, 100);
+    color: rgb(100, 100, 100);
     text-align: center;
-    padding: 80px 150px 0 170px;
+    padding: 40px 0 0 0;
 }
-.ctnservicioBeneficiosCostos h3{
+
+.ctnservicioBeneficiosCostos h3 {
     font-size: 40px;
     font-weight: bold;
     text-decoration: underline;
     text-align: center;
     color: #5778FA;
-    padding: 0px 150px 60px 170px;
+    padding: 0 0 60px 0;
 }
-.ctniteminfoservicios{
+
+.ctniteminfoservicios {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
-.ctniteminfoservicios div{
-    width: 13%;
-    height: 300px;
-    margin: 10px 10px;
+
+.ctniteminfoservicios div {
+    width: 100%;
+    min-height: 300px;
+    margin: 10px 0;
     background-color: white;
     box-shadow: 0px 0px 10px rgb(200, 200, 200);
     border-radius: 10px;
 }
 
-.ctnservicioBeneficiosCostos .txtcb01{
+.ctnservicioBeneficiosCostos .txtcb01 {
     font-size: 18px;
     text-align: center;
     padding: 30px 20px;
     color: rgb(0, 0, 0);
 }
 
-.ctnservicioBeneficiosCostos .txtcb02{
+.ctnservicioBeneficiosCostos .txtcb02 {
     font-weight: bold;
     font-size: 22px;
     text-align: center;
     padding: 0px 20px;
-    color:#5778FA;
+    color: #5778FA;
 }
-.ctnservicioBeneficiosCostos .txtcb03{
-    font-weight:lighter;
+
+.ctnservicioBeneficiosCostos .txtcb03 {
+    font-weight: lighter;
     font-size: 22px;
     text-align: center;
     padding: 0px 20px;
-    color:#5778FA;
+    color: #5778FA;
 }
 
-.ctnservicioBeneficiosCostos .txtcb04{
-    font-weight:lighter;
+.ctnservicioBeneficiosCostos .txtcb04 {
+    font-weight: lighter;
     font-size: 22px;
     text-align: center;
     padding: 30px 20px;
-    color:rgb(67, 67, 67);
-
+    color: rgb(67, 67, 67);
 }
-.btnobtenPerfil02{
+
+.btnobtenPerfil02 {
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
@@ -254,105 +285,116 @@ header nav ul li a:hover{
     border-radius: 5px;
     background-color: #5778FA;
     color: white;
-    width: 300px;
-    margin: 20px auto 10px auto;
+    max-width: 300px;
+    margin: 20px auto;
     display: block;
     border-radius: 20px;
 }
 
-.alertbtn02{
+.alertbtn02 {
     font-style: italic;
     color: rgb(67, 67, 67);
     font-size: 15px;
-    width: 350px;
-    padding: 0px 25px;
-    margin: 0px auto 50px auto;
+    max-width: 350px;
+    margin: 0 auto 50px auto;
+    text-align: center;
 }
 
-.ctnservicioBeneficiosCostos img{
-    width: 500px;
-    margin: 0px auto;
+.ctnservicioBeneficiosCostos img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
     display: block;
 }
 
-.pre-contacto{
+/* Pre-Contact Section */
+.pre-contacto {
     width: 100%;
-    height: 20vh;
-   background-image: url('../img/precontact.avif');
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-color: #728df8b5;
-   background-blend-mode:color-burn;
-   
+    min-height: 20vh;
+    background-image: url('../img/precontact.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #728df8b5;
+    background-blend-mode: color-burn;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px 5%;
+    text-align: center;
 }
-.pre-contacto h2{
-    font-size: 40px;
+
+.pre-contacto h2 {
+    font-size: 30px;
     color: rgb(209, 209, 209);
-    margin: 0px 150px 0px 170px;
+    margin: 0;
 }
 
-.pre-contacto h1{
-    font-size: 50px;
+.pre-contacto h1 {
+    font-size: 40px;
     color: rgb(255, 255, 255);
-    margin: 0px 150px 0px 170px;
+    margin: 0;
 }
 
-.contacto{
+/* Contact Section */
+.contacto {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-wrap: wrap;
+    padding: 20px 5%;
 }
 
-.contactodivform{
+.contactodivform {
     box-shadow: 0px 0px 10px rgb(200, 200, 200);
-    padding: 60px;
-    width: 35%;
-    height: 80vh;
-    margin: 100px 150px 0px 170px;
+    padding: 30px;
+    width: 100%;
+    min-height: auto;
+    margin: 20px 0;
 }
-.contactodivform .txtform1{
-    font-size: 35px;
+
+.contactodivform .txtform1 {
+    font-size: 30px;
     font-weight: bold;
     color: #545454;
 }
 
-.contactodivform .txtform2{
-    font-size: 48px;
+.contactodivform .txtform2 {
+    font-size: 36px;
     font-weight: bold;
     color: #5778FA;
 }
-.contactodivform .txtform3{
-    font-size: 20px;
+
+.contactodivform .txtform3 {
+    font-size: 18px;
     color: #545454;
 }
-.contactodivform form{
-    margin: 40px 0px;
+
+.contactodivform form {
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    min-height: auto;
 }
 
-.contactodivform form input{
-    margin: 10px 0px;
+.contactodivform form input {
+    margin: 10px 0;
     padding: 10px;
     border: none;
     border-bottom: 1px solid;
-
 }
-.contactodivform form input:focus{
+
+.contactodivform form input:focus {
     outline: none;
 }
-.contactodivform form input:focus::-webkit-input-placeholder { 
+
+.contactodivform form input:focus::-webkit-input-placeholder {
     transform: translateY(-10px);
     font-size: 0.8em;
 }
 
-.contactodivform form input[type="submit"]{
+.contactodivform form input[type="submit"] {
     background-color: #5778FA;
     color: white;
     border-radius: 10px;
@@ -363,223 +405,172 @@ header nav ul li a:hover{
     cursor: pointer;
 }
 
-
-.contactodivmail{
+.contactodivmail {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgb(200, 200, 200);
-    width: 35%;
-    height: 70vh;
+    width: 100%;
+    min-height: auto;
     background-color: #5778FA;
-    margin: 100px 150px 0px 40px;
-    padding: 100px;
+    margin: 20px 0;
+    padding: 30px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
-.contactodivmail h1{
-    font-size:50px;
+.contactodivmail h1 {
+    font-size: 36px;
     color: rgb(255, 255, 255);
-    margin-bottom: 30px;
-
+    margin-bottom: 20px;
 }
 
-.titulocontacto{
-    font-size: 20px;
+.titulocontacto {
+    font-size: 18px;
     color: rgb(255, 255, 255);
     margin-bottom: 10px;
 }
 
-.detallecontacto{
-    font-size: 17px;
+.detallecontacto {
+    font-size: 16px;
     color: rgb(255, 255, 255);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-footer{
+/* Footer */
+footer {
     width: 100%;
-    height: 30vh;
+    min-height: 30vh;
     background-color: #5778FA;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: white;
+    padding: 20px 5%;
 }
-.cntfooter{
+
+.cntfooter {
     width: 100%;
-    height: 40vh;
+    min-height: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
 }
-.cntfooter div{
-    width: 20%;
-    height: 20vh;
+
+.cntfooter div {
+    width: 100%;
+    min-height: auto;
     display: flex;
     flex-direction: column;
+    margin: 10px 0;
 }
 
-.cntfooter div img{
-    width: 250px;
-    margin: 0px 0px;
-}
-
-.cntfooter div a{
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 15px;
-    margin: 0px 0px;
-}
-.cntfooter div .tittlefooter{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 20px;
-    margin: 0px 0px;
-}
-
-.cntfooter2 p{
-    
-    margin: 10px 10px;
-    padding: 10px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* Estilos base (ya provistos) */
-/* Tu código CSS original aquí... (omitido para no repetirlo en el canvas) */
-
-/* Media Queries para hacerlo responsive */
-
-@media screen and (max-width: 1200px) {
-  header {
-    padding: 30px 50px;
-  }
-  .herosection h3,
-  .obtenConsultas01,
-  .btnobtenPerfil01,
-  .alertbtn,
-  .texthero,
-  .texthero2,
-  .conteinerTituloComofunciona h3,
-  .conteinerTituloComofunciona div,
-  .cntcreaperfil01 .text01ctncp,
-  .cntcreaperfil01 h5,
-  .ctnservicioBeneficiosCostos h2,
-  .ctnservicioBeneficiosCostos h3 {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .contactodivform,
-  .contactodivmail {
-    margin: 100px 50px 0 50px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  header nav ul {
-    flex-direction: column;
-  }
-  .herosection {
-    background-size: cover;
-    height: auto;
-    padding-bottom: 50px;
-  }
-  .conteinerComofunciona {
-    flex-direction: column;
-    height: auto;
-  }
-  .conteinerComofunciona div {
-    width: 100%;
-    height: 250px;
-  }
-  .ctniteminfoservicios {
-    flex-wrap: wrap;
-  }
-  .ctniteminfoservicios div {
-    width: 45%;
-  }
-  .contacto {
-    flex-direction: column;
-    height: auto;
-  }
-  .contactodivform,
-  .contactodivmail {
-    width: 90%;
-    margin: 20px auto;
-    height: auto;
-  }
-  .cntfooter {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-  .cntfooter div {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .herosection h3,
-  .obtenConsultas01,
-  .texthero,
-  .texthero2 {
-    font-size: 22px;
-    width: auto;
-  }
-  .btnobtenPerfil01,
-  .btnobtenPerfil02 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .pre-contacto h1,
-  .pre-contacto h2 {
-    margin: 0;
-    padding: 0 20px;
-    text-align: center;
-  }
-  .contactodivform .txtform1,
-  .contactodivform .txtform2 {
-    font-size: 28px;
-  }
-  .contactodivform .txtform3 {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  header img {
+.cntfooter div img {
     width: 200px;
-  }
-  .conteinerTituloComofunciona {
-    flex-direction: column;
-  }
-  .conteinerTituloComofunciona div {
-    padding: 10px 20px;
-  }
-  .ctniteminfoservicios div {
-    width: 90%;
-  }
-  .contactodivform form input[type="submit"] {
-    width: 100%;
-    margin: 30px 0;
-  }
-  footer {
-    height: auto;
-    padding: 20px;
-  }
-  .cntfooter2 p {
+    max-width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.cntfooter div a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 15px;
+    margin: 0;
+}
+
+.cntfooter div .tittlefooter {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0;
+    font-size: 18px;
+    margin: 0;
+}
+
+.cntfooter2 p {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
     font-size: 16px;
-  }
+    font-weight: bold;
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+    header {
+        padding: 15px 150px;
+    }
+    
+    .herosection {
+        background-size: 800px;
+        padding: 0 150px 0 170px;
+    }
+    
+    .conteinerComofunciona div {
+        width: 25%;
+    }
+    
+    .ctniteminfoservicios div {
+        width: 13%;
+    }
+    
+    .contactodivform {
+        width: 45%;
+        margin: 100px 20px 0 0;
+    }
+    
+    .contactodivmail {
+        width: 45%;
+        margin: 100px 0 0 20px;
+        padding: 100px;
+    }
+    
+    .cntfooter div {
+        width: 20%;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 991px) {
+    header {
+        padding: 15px 50px;
+    }
+    
+    .herosection {
+        background-size: 500px;
+        padding: 0 50px;
+    }
+    
+    .conteinerComofunciona div {
+        width: 50%;
+    }
+    
+    .ctniteminfoservicios div {
+        width: 30%;
+        margin: 10px;
+    }
+    
+    .contactodivform,
+    .contactodivmail {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .cntfooter div {
+        width: 50%;
+    }
+}
+/* desktop */
+@media (min-width: 1200px) {
+  
+}
+/* tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+ 
+}
+/* celular */
+@media (max-width: 767px) {
+
 }
