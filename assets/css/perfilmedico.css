@@ -1,0 +1,745 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+}
+
+header img {
+  width: 180px;
+  max-width: 100%;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  font-size: 13px;
+  text-decoration: none;
+  color: rgb(58, 58, 58);
+}
+
+header nav ul li a:hover {
+  color: rgb(46, 194, 216);
+  transition: all 0.5s;
+}
+
+/* Hero Section */
+.herosection {
+  text-align: start;
+  background-color: rgb(243, 245, 255);
+  background-image: url("../img/heroimgv1.avif");
+  background-position: right top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 90vh;
+  padding: 20px 5%;
+}
+
+.herosection h3 {
+  font-size: 35px;
+  color: #2751a3;
+  margin-top: 40px;
+}
+
+.obtenConsultas01 {
+  font-size: 50px;
+  color: #5778fa;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+}
+
+.btnobtenPerfil01 {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: #5778fa;
+  color: white;
+  max-width: 300px;
+  margin: 20px 0;
+  border: solid;
+  display: block;
+  border-radius: 20px;
+}
+
+.alertbtn {
+  font-style: italic;
+  color: rgb(67, 67, 67);
+  font-size: 15px;
+  max-width: 350px;
+  margin: 0 0 50px 0;
+}
+
+.alertbtn a {
+  color: rgb(67, 67, 67);
+}
+
+.texthero {
+  max-width: 650px;
+  font-size: 20px;
+  margin: 0 0 50px 0;
+}
+
+.herosection img {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.texthero2 {
+  max-width: 650px;
+  font-size: 14px;
+  margin: 0 0 50px 0;
+  color: rgb(67, 67, 67);
+  font-style: italic;
+}
+
+/* How It Works Section */
+.conteinerTituloComofunciona {
+  background-color: rgb(243, 245, 255);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 5%;
+}
+
+.conteinerTituloComofunciona h3 {
+  color: #5778fa;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.conteinerTituloComofunciona div {
+  display: flex;
+  align-items: center;
+}
+
+.conteinerTituloComofunciona div img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+.conteinerComofunciona {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(243, 245, 255);
+  min-height: auto;
+}
+
+.conteinerComofunciona div {
+  width: 100%;
+  min-height: 300px;
+  background-color: #5778fa;
+  margin: 10px 0;
+}
+
+.conteinerComofunciona .imgfunciona1 {
+  background-image: url("../img/imgcf1.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.conteinerComofunciona .imgfunciona2 {
+  background-image: url("../img/imgcf2.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.conteinerComofunciona div h4 {
+  color: white;
+  padding: 25px;
+  font-size: 20px;
+  margin-top: 35px;
+}
+
+.conteinerComofunciona div p {
+  color: white;
+  padding: 25px;
+  font-size: 15px;
+}
+
+/* Create Profile Section */
+.cntcreaperfil01 {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+.cntcreaperfil01 .text01ctncp {
+  font-size: 20px;
+  color: rgb(58, 58, 58);
+  margin: 10px 0;
+}
+
+.cntcreaperfil01 h5 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5778fa;
+  padding: 5px 0;
+  margin: 0 0 10px 0;
+}
+
+/* Services Section */
+.ctnservicioBeneficiosCostos {
+  width: 100%;
+  background-color: rgb(243, 245, 255);
+  padding: 20px 5%;
+}
+
+.ctnservicioBeneficiosCostos h2 {
+  font-size: 40px;
+  font-weight: lighter;
+  color: rgb(100, 100, 100);
+  text-align: center;
+  padding: 40px 0 0 0;
+}
+
+.ctnservicioBeneficiosCostos h3 {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  color: #5778fa;
+  padding: 0 0 60px 0;
+}
+
+.ctniteminfoservicios {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctniteminfoservicios div {
+  width: 100%;
+  min-height: 300px;
+  margin: 10px 0;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgb(200, 200, 200);
+  border-radius: 10px;
+}
+
+.ctnservicioBeneficiosCostos .txtcb01 {
+  font-size: 18px;
+  text-align: center;
+  padding: 30px 20px;
+  color: rgb(0, 0, 0);
+}
+
+.ctnservicioBeneficiosCostos .txtcb02 {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  padding: 0px 20px;
+  color: #5778fa;
+}
+
+.ctnservicioBeneficiosCostos .txtcb03 {
+  font-weight: lighter;
+  font-size: 22px;
+  text-align: center;
+  padding: 0px 20px;
+  color: #5778fa;
+}
+
+.ctnservicioBeneficiosCostos .txtcb04 {
+  font-weight: lighter;
+  font-size: 22px;
+  text-align: center;
+  padding: 30px 20px;
+  color: rgb(67, 67, 67);
+}
+
+.btnobtenPerfil02 {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: #5778fa;
+  color: white;
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.alertbtn02 {
+  font-style: italic;
+  color: rgb(67, 67, 67);
+  font-size: 15px;
+  max-width: 350px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
+
+.ctnservicioBeneficiosCostos img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Pre-Contact Section */
+.pre-contacto {
+  width: 100%;
+  min-height: 20vh;
+  background-image: url("../img/precontact.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #728df8b5;
+  background-blend-mode: color-burn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+.pre-contacto h2 {
+  font-size: 30px;
+  color: rgb(209, 209, 209);
+  margin: 0;
+}
+
+.pre-contacto h1 {
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+/* Contact Section */
+.contacto {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 5%;
+}
+
+.contactodivform {
+  box-shadow: 0px 0px 10px rgb(200, 200, 200);
+  padding: 30px;
+  width: 100%;
+  min-height: auto;
+  margin: 20px 0;
+}
+
+.contactodivform .txtform1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #545454;
+}
+
+.contactodivform .txtform2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5778fa;
+}
+
+.contactodivform .txtform3 {
+  font-size: 18px;
+  color: #545454;
+}
+
+.contactodivform form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+}
+
+.contactodivform form input {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.contactodivform form input:focus {
+  outline: none;
+}
+
+.contactodivform form input:focus::-webkit-input-placeholder {
+  transform: translateY(-10px);
+  font-size: 0.8em;
+}
+
+.contactodivform form input[type="submit"] {
+  background-color: #5778fa;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 150px;
+  height: 50px;
+  margin: 30px 0 30px auto;
+  cursor: pointer;
+}
+
+.contactodivmail {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(200, 200, 200);
+  width: 100%;
+  min-height: auto;
+  background-color: #5778fa;
+  margin: 20px 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactodivmail h1 {
+  font-size: 36px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.titulocontacto {
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+.detallecontacto {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  min-height: 30vh;
+  background-color: #5778fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 20px 5%;
+}
+
+.cntfooter {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.cntfooter div {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.cntfooter div img {
+  width: 200px;
+  max-width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.cntfooter div a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 15px;
+  margin: 0;
+}
+
+.cntfooter div .tittlefooter {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+  font-size: 18px;
+  margin: 0;
+}
+
+.cntfooter2 p {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.container-info-doctor {
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cntimagenmedico {
+  width: 30%;
+  height: 80%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  background-color: #5778fa;
+}
+.imagenmedico {
+  width: 95%;
+  height: 90%;
+  margin-top: 2%;
+  border-radius: 25px;
+}
+.logoconsultamemedico {
+  width: 70%;
+}
+.ctninfomedico {
+  width: 25%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.nombredoctor01 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: 10%;
+  font-weight: lighter;
+}
+.cpm {
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #5778fa;
+}
+.resenia {
+  font-style: italic;
+  margin-bottom: 18px;
+  color: #5778fa;
+}
+.txtresenia {
+  font-size: 12px;
+  margin-bottom: 15%;
+}
+
+.ctnbotones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 10%;
+}
+.btnreservar {
+  width: 40%;
+  margin-right: 20px;
+  text-decoration: none;
+  border: solid #5778fa 2px;
+  padding: 10px;
+  text-align: center;
+  color: #5778fa;
+  font-size: 15px;
+  font-weight: bold;
+}
+.btncontactar {
+  color: #5778fa;
+  font-size: 16px;
+}
+
+.conteinerhorariosyprecios {
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.ctnprecios{
+    width: 25%;
+    height: 100%;
+    margin-right: 5%;
+    border-radius: 0px 0px 25px 25px;
+    box-shadow: 0px 0px 15px  rgb(200, 200, 200);
+    
+}
+.precio01{
+
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin-top: 10%;
+}
+.txtcosto01{
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #5778fa;
+}
+.precio01 img{
+    width: 60px;
+}
+.precio02{
+
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin-top: 0px;
+}
+.txtcosto02{
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #5778fa;
+}
+.precio02 img{
+    width: 60px;
+}
+.precio03{
+
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin-top: 2%;
+}
+.txtcosto03{
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #5778fa;
+}
+.precio03 img{
+    width: 50px;
+}
+
+.ctnhorarios{
+    width: 25%;
+    height: 100%;
+    background-color: #5778fa;
+    border-radius: 0px 0px 25px 25px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    padding: 90px;
+}
+.tittlehorarios{
+    font-size: 16px;
+    color:#5778fa;
+    background-color: white;
+    margin-bottom: 5%;
+    width: 60%;
+}
+.txtlunesdomingo{
+    font-size: 16px;
+    color: white;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+.txthoras{
+    font-size: 15px;
+    color: white;
+    margin-bottom: 2%;
+
+}
+/* Desktop Styles */
+@media (min-width: 992px) {
+  header {
+    padding: 15px 150px;
+  }
+
+  .herosection {
+    background-size: 800px;
+    padding: 0 150px 0 170px;
+  }
+
+  .conteinerComofunciona div {
+    width: 25%;
+  }
+
+  .ctniteminfoservicios div {
+    width: 13%;
+  }
+
+  .contactodivform {
+    width: 45%;
+    margin: 100px 20px 0 0;
+  }
+
+  .contactodivmail {
+    width: 45%;
+    margin: 100px 0 0 20px;
+    padding: 100px;
+  }
+
+  .cntfooter div {
+    width: 20%;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  header {
+    padding: 15px 50px;
+  }
+
+  .herosection {
+    background-size: 500px;
+    padding: 0 50px;
+  }
+
+  .conteinerComofunciona div {
+    width: 50%;
+  }
+
+  .ctniteminfoservicios div {
+    width: 30%;
+    margin: 10px;
+  }
+
+  .contactodivform,
+  .contactodivmail {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .cntfooter div {
+    width: 50%;
+  }
+}
+/* desktop */
+@media (min-width: 1200px) {
+}
+/* tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+}
+/* celular */
+@media (max-width: 767px) {
+}

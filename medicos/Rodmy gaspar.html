@@ -1,53 +1,4 @@
-<?php
 
-function selectmedicos($cn)
-{
-    $sql = "SELECT * FROM medico";
-    $result = mysqli_query($cn, $sql);
-    return $result;
-}
-
-// Verify if receiving POST request with JSON
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Set response header as JSON
-    header('Content-Type: application/json');
-
-    // Decode received JSON
-    $data = json_decode(file_get_contents("php://input"), true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(['error' => 'Invalid JSON']);
-        exit;
-    }
-
-    // Validate received data    
-
-    include_once('db.php');
-    switch ($data['action']) {
-        case 'obtenerMedicos':
-            if (!$conexion) {
-                echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
-                exit;
-            }
-            try {
-                $response = selectmedicos($conexion);
-
-                if ($response) {
-                    $medicos = [];
-                    while ($row = $response->fetch_assoc()) {
-                        $medicos[] = $row;
-                    }
-                    echo json_encode(['success' => true, 'medicos' => $medicos, 'message' => 'medicos encontrados']);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'no se encontraton medicos']);
-                }
-            } catch (Exception $e) {
-                echo json_encode(['error' => $e->getMessage()]);
-            }
-            break;
-        case 'crearPerfil':
-                try {
-                    $medico = $data['medico'];
-                    $html = '
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,22 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="cntimagenmedico">
         <img
           class="imagenmedico"
-          src="'.$medico['LinkFoto'].'"
+          src="https://share.icloud.com/photos/040Cyagysh6hlkbZ0X7WrYhvw"
           alt=""
           srcset=""
         />
         <img
           class="logoconsultamemedico"
-          src="../assets/img/logoconsultame02.avif"
+          src="..assets/img/logoconsultame02.avif"
           alt=""
         />
       </div>
       <div class="ctninfomedico">
-        <h2 class="nombredoctor01">Dr. '.$medico['completename'].'</h2>
-        <p class="cpm">CPM:'.$medico['cmp'].' / '.$medico['especialidad'].'</p>
+        <h2 class="nombredoctor01">Dr. Rodmy gaspar</h2>
+        <p class="cpm">CPM:38294 / Ortopedia y traumatologia</p>
         <p class="resenia">reseña:</p>
         <p class="txtresenia">
-          '.$medico['Resenia'].'
+          Especialista en traumatología general, ortopedia infantil y lesiones de rodilla
         </p>
         <div class="ctnbotones">
           <a href="#" class="btnreservar">RESERVAR CITA</a>
@@ -163,20 +114,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </body>
 </html>
 
-                    ';
-                     $file = '../medicos/' . $medico['completename'] . '.html';
-                    if (file_put_contents($file, $html) !== false) {
-                        echo json_encode(['success' => true, 'message' => 'perfil de medico creado en ' . $file]);
-                    } else {
-                        echo json_encode(['success' => false, 'message' => 'no se pudo crear el archivo ' . $file]);
-                    }
-                } catch (Exception $e) {
-                   echo json_encode(['error' => $e->getMessage()]);
-                }
-            
-            break;
-        default:
-            echo json_encode(['success' => false]);
-            break;
-    }
-}
+                    

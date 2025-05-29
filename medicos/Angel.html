@@ -1,53 +1,4 @@
-<?php
 
-function selectmedicos($cn)
-{
-    $sql = "SELECT * FROM medico";
-    $result = mysqli_query($cn, $sql);
-    return $result;
-}
-
-// Verify if receiving POST request with JSON
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Set response header as JSON
-    header('Content-Type: application/json');
-
-    // Decode received JSON
-    $data = json_decode(file_get_contents("php://input"), true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(['error' => 'Invalid JSON']);
-        exit;
-    }
-
-    // Validate received data    
-
-    include_once('db.php');
-    switch ($data['action']) {
-        case 'obtenerMedicos':
-            if (!$conexion) {
-                echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
-                exit;
-            }
-            try {
-                $response = selectmedicos($conexion);
-
-                if ($response) {
-                    $medicos = [];
-                    while ($row = $response->fetch_assoc()) {
-                        $medicos[] = $row;
-                    }
-                    echo json_encode(['success' => true, 'medicos' => $medicos, 'message' => 'medicos encontrados']);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'no se encontraton medicos']);
-                }
-            } catch (Exception $e) {
-                echo json_encode(['error' => $e->getMessage()]);
-            }
-            break;
-        case 'crearPerfil':
-                try {
-                    $medico = $data['medico'];
-                    $html = '
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="cntimagenmedico">
         <img
           class="imagenmedico"
-          src="'.$medico['LinkFoto'].'"
+          src="https://i.imgur.com/V3emSBr.jpeg"
           alt=""
           srcset=""
         />
@@ -85,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         />
       </div>
       <div class="ctninfomedico">
-        <h2 class="nombredoctor01">Dr. '.$medico['completename'].'</h2>
-        <p class="cpm">CPM:'.$medico['cmp'].' / '.$medico['especialidad'].'</p>
+        <h2 class="nombredoctor01">Dr. Angel</h2>
+        <p class="cpm">CPM:1234569 / medicina general</p>
         <p class="resenia">reseña:</p>
         <p class="txtresenia">
-          '.$medico['Resenia'].'
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
         </p>
         <div class="ctnbotones">
           <a href="#" class="btnreservar">RESERVAR CITA</a>
@@ -163,20 +114,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </body>
 </html>
 
-                    ';
-                     $file = '../medicos/' . $medico['completename'] . '.html';
-                    if (file_put_contents($file, $html) !== false) {
-                        echo json_encode(['success' => true, 'message' => 'perfil de medico creado en ' . $file]);
-                    } else {
-                        echo json_encode(['success' => false, 'message' => 'no se pudo crear el archivo ' . $file]);
-                    }
-                } catch (Exception $e) {
-                   echo json_encode(['error' => $e->getMessage()]);
-                }
-            
-            break;
-        default:
-            echo json_encode(['success' => false]);
-            break;
-    }
-}
+                    
