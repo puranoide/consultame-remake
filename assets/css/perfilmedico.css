@@ -516,7 +516,7 @@ footer {
   background-color: #5778fa;
 }
 .imagenmedico {
-  width: 95%;
+  width: 92%;
   height: 90%;
   margin-top: 2%;
   border-radius: 25px;
@@ -585,89 +585,251 @@ footer {
   margin-bottom: 2%;
 }
 
-.ctnprecios{
-    width: 25%;
-    height: 100%;
-    margin-right: 5%;
-    border-radius: 0px 0px 25px 25px;
-    box-shadow: 0px 0px 15px  rgb(200, 200, 200);
-    
+.ctnprecios {
+  width: 25%;
+  height: 90%;
+  margin-right: 5%;
+  border-radius: 0px 0px 25px 25px;
+  box-shadow: 0px 0px 15px rgb(200, 200, 200);
 }
-.precio01{
-
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    margin-top: 10%;
+.precio01 {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-top: 10%;
 }
-.txtcosto01{
-    margin-left: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #5778fa;
+.txtcosto01 {
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5778fa;
 }
-.precio01 img{
-    width: 60px;
+.precio01 img {
+  width: 60px;
 }
-.precio02{
-
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    margin-top: 0px;
+.precio02 {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-top: 0px;
 }
-.txtcosto02{
-    margin-left: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #5778fa;
+.txtcosto02 {
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5778fa;
 }
-.precio02 img{
-    width: 60px;
+.precio02 img {
+  width: 60px;
 }
-.precio03{
-
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    margin-top: 2%;
+.precio03 {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-top: 2%;
 }
-.txtcosto03{
-    margin-left: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #5778fa;
+.txtcosto03 {
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5778fa;
 }
-.precio03 img{
-    width: 50px;
+.precio03 img {
+  width: 50px;
 }
 
-.ctnhorarios{
-    width: 25%;
-    height: 100%;
-    background-color: #5778fa;
-    border-radius: 0px 0px 25px 25px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
-    padding: 90px;
+.ctnhorarios {
+  width: 25%;
+  height: 90%;
+  background-color: #5778fa;
+  border-radius: 0px 0px 25px 25px;
+  box-shadow: 0px 0px 5px rgb(200, 200, 200);
+  padding: 90px;
 }
-.tittlehorarios{
-    font-size: 16px;
-    color:#5778fa;
-    background-color: white;
-    margin-bottom: 5%;
-    width: 60%;
+.tittlehorarios {
+  font-size: 16px;
+  color: #5778fa;
+  background-color: white;
+  margin-bottom: 5%;
+  width: 60%;
 }
-.txtlunesdomingo{
-    font-size: 16px;
-    color: white;
-    margin-bottom: 2%;
-    font-weight: bold;
+.txtlunesdomingo {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 2%;
+  font-weight: bold;
 }
-.txthoras{
-    font-size: 15px;
-    color: white;
-    margin-bottom: 2%;
+.txthoras {
+  font-size: 15px;
+  color: white;
+  margin-bottom: 2%;
+}
 
+.ctn-precuentas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.ctn-precuentas h2 {
+  font-size: 25px;
+  color: #5778fa;
+  margin-bottom: 1%;
+  text-decoration: underline;
+}
+
+.ctn-precuentas .txttransferencia {
+  font-size: 13px;
+  font-style: italic;
+}
+.txtcorporacionmedicgo {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+.ctn-cuentas {
+  height: 30vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+.ctninfocuentas {
+  width: 15%;
+  height: 90%;
+  border-radius: 25px;
+  box-shadow: 0px 0px 15px rgb(200, 200, 200);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: #5778fa;
+}
+
+.tituloinfo {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+.nombrebanco {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5%;
+  text-decoration: underline;
+}
+.titulotipodecuenta {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+.cntreservas01 {
+  height: 25vh;
+  border: solid gray 1px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+}
+.cntreservas01 div {
+  width: 50%;
+  align-items: center;
+}
+.cntreservas01 div img {
+  width: 75%;
+  padding: 10px;
+  margin-top: 3%;
+}
+.cntreservas01 div h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10%;
+}
+.cntreservas01 div p {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.btnreservar2 {
+  width: 40%;
+  text-decoration: none;
+  border: solid #5778fa 2px;
+  padding: 10px;
+  text-align: center;
+  color: #5778fa;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  margin: 3% auto;
+}
+.cntreservas01 div hr {
+  width: 80%;
+  margin: 0 auto;
+}
+.postreserva {
+  height: 15vh;
+  background-color: #5778fa;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  box-shadow: 0px 0px 10px #5778fa;
+  color: white;
+}
+
+.resena {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+}
+
+.resena .tituloreseña {
+  font-size: 50px;
+  color: #5778fa;
+  margin-bottom: 4%;
+}
+
+.resena .tituloreseña span {
+  font-weight: bold;
+  font-size: 50px;
+  color: #000000;
+  margin-bottom: 4%;
+
+}
+.reseña {
+  font-size: 20px;
+  color: #5778fa;
+  margin-bottom: 4%;
+  font-style: italic;
+  text-align: center;
+}
+.autoreseña {
+  font-size: 20px;
+  color: #5778fa;
+  margin-bottom: 4%;
+  font-weight: bold;
 }
 /* Desktop Styles */
 @media (min-width: 992px) {
