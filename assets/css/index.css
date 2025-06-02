@@ -51,13 +51,13 @@ header nav ul li a:hover {
     background-repeat: no-repeat;
     width: 100%;
     min-height: 90vh;
-    padding: 20px 5%;
 }
 
 .herosection h3 {
+    padding-top: 100px;
     font-size: 35px;
     color: #2751A3;
-    margin-top: 40px;
+
 }
 
 .obtenConsultas01 {
@@ -70,7 +70,7 @@ header nav ul li a:hover {
 
 .btnobtenPerfil01 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: none;
     text-align: center;
     padding: 15px 20px;
@@ -232,17 +232,21 @@ header nav ul li a:hover {
 .ctniteminfoservicios {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+    padding: 0 5%;
 }
 
 .ctniteminfoservicios div {
-    width: 100%;
+    flex: 1 1 20%;
     min-height: 300px;
-    margin: 10px 0;
+    margin: 10px;
     background-color: white;
     box-shadow: 0px 0px 10px rgb(200, 200, 200);
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ctnservicioBeneficiosCostos .txtcb01 {
