@@ -67,7 +67,7 @@ function registrarMedico(medicoObj,linkimgurl) {
       //console.log(data);
       if (data.success) {
         console.log("respuesta :", data);
-        //alert("post exitoso");
+        alert("Tu registro a sido exitoso");
         //window.location.href = "gestionPosts.php";
       }
     })
