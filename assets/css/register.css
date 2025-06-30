@@ -15,7 +15,14 @@ header {
     align-items: center;
     padding: 15px 5%;
 }
-
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 5%
+}
 header img {
     width: 180px;
     max-width: 100%;

@@ -29,40 +29,59 @@ $idMedico = $_GET['id'];
         </nav>
     </header>
 
-    <div class="container">
-        <div class="form-container">
-            <div class="form-title">Completa tus datos</div>
-            <p class="small-note">Completa tus datos para que un asesor de Consúltame.pe programe una cita con tu médico de confianza.</p>
-            <form class="form" id="post-form-register">
-                <div class="row mb-3">
-                    <input type="hidden" name="idMedico" value="<?php echo $idMedico; ?>">
-                    <div class="col-md-6">
-                        <label for="nombre" class="form-label">Nombres y apellidos *</label>
-                        <input type="text" name="name" class="form-control" id="nombre" maxlength="100" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="email" class="form-label">Correo electrónico / E-mail *</label>
-                        <input name="email" type="email" class="form-control" id="email" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="telefono" class="form-label">Teléfono *</label>
-                        <input name="telefono" type="tel" class="form-control" id="telefono" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="dni" class="form-label">DNI / Pasaporte / ID *</label>
-                        <input name="dni" type="text" class="form-control" id="dni" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="motivo" class="form-label">Explica el motivo de tu consulta *</label>
-                    <textarea name="motivo" class="form-control" id="motivo" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
+<div class="container py-5">
+  <div class="row g-4">
+    <!-- Formulario -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <h4 class="fw-bold mb-2">Completa tus datos</h4>
+        <p class="text-muted mb-4">
+          Completa tus datos para que un asesor de Consúltame.pe programe una cita con tu médico de confianza.
+        </p>
+        <form id="post-form-register">
+          <input type="hidden" name="idMedico" value="<?php echo $idMedico; ?>">
+
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombres y apellidos *</label>
+            <input type="text" name="name" class="form-control" id="nombre" maxlength="100" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico / E-mail *</label>
+            <input type="email" name="email" class="form-control" id="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" id="telefono" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="dni" class="form-label">DNI / Pasaporte / ID *</label>
+            <input type="text" name="dni" class="form-control" id="dni" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="motivo" class="form-label">Explica el motivo de tu consulta *</label>
+            <textarea name="motivo" class="form-control" id="motivo" rows="3" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Enviar</button>
+        </form>
+      </div>
     </div>
+
+    <!-- Fechas disponibles -->
+    <div class="col-md-4">
+      <h4 class="fw-bold mb-3">Fechas disponibles</h4>
+      <div id="fechasDisponibles" class="d-flex flex-wrap gap-2"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
     <footer>

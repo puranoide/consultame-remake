@@ -9,6 +9,16 @@ function Registercita($con, $cita)
     return $result;
 }
 
+function validarhoradecita($con,$horastr,$idmedico){
+    $fecha = DateTime::createFromFormat('d/m/Y, H:i:s', $horastr);
+    $fechahora = $fecha->format('Y-m-d H:i:s');
+    $sql = "SELECT * FROM citasform WHERE idmedico = ? AND fechahora = ?";
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $idmedico, $fechahora);
+    $result = mysqli_stmt_execute($stmt);
+    return $result;
+}
+
 // Verify if receiving POST request with JSON
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Set response header as JSON
