@@ -38,7 +38,6 @@ function saveImageImgur(idClient,objetoRegistro,linkFoto) {
         //console.log(data);
         if (data.success) {
             //console.log(data);
-            objetoRegistro.linkFoto = data.data.link;
             registrarMedico(objetoRegistro,data.data.link);    
         }
     })

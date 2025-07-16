@@ -106,7 +106,7 @@ YAPE / PLIN / OTRO
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
-                                        <label class="form-label text-dark fw-bold" for="seleccionHoras">Horario semanal</label>
+                                        <label class="form-label text-dark fw-bold" for="seleccionHoras">Frecuencia de atenciones a la semana</label>
                                         <select class="form-select custom-placeholder" aria-label="Default select example" name="seleccionHoras" required>
                                             <option value="" selected>Número de atenciones por semana</option>
                                             <option value="uno o menos">Uno o menos</option>
