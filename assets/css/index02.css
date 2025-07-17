@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 
@@ -721,9 +721,11 @@ footer {
     margin-bottom: 10px;
 
 }
-.fondocontacto{
+
+.fondocontacto {
     background-color: #d4dcfa;
 }
+
 .containercontact {
     margin: 0 auto;
     max-width: 700px;
@@ -756,17 +758,20 @@ footer {
     display: flex;
     align-items: center
 }
+
 .group-radio {
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     align-items: center
 }
+
 .group-radio label {
     margin-right: 10px;
     font-size: 15px;
     font-weight: normal;
 }
+
 .group-radio input[type="radio"] {
     margin-right: 10px;
 }
@@ -828,6 +833,68 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #3452e1;
 }
+
+/* Contenedor principal */
+.consulta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: #f4f6fc;
+    padding: 20px;
+}
+
+/* Tarjeta */
+.consulta-card {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 550px;
+    width: 100%;
+}
+
+/* Título */
+.consulta-title {
+    font-size: 1.8rem;
+    color: #3b57ff;
+    margin-bottom: 15px;
+}
+
+/* Texto */
+.consulta-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Email */
+.consulta-email {
+    font-size: 1.1rem;
+
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Botón */
+.btn-home {
+    background: #3b57ff;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-home:hover {
+    background: #2f47d8;
+}
+
+
 
 /* Responsive Breakpoints */
 
