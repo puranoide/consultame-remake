@@ -70,9 +70,9 @@ obtenerMedicos();
 function generarPerfilMedico(medicoObj) {
   const datos = {
     action: "crearPerfil",
-    medico: medicoObj,
+    ...medicoObj,
   };
-
+  console.log(datos);
   fetch("../controllers/medicos.php", {
     method: "POST",
     headers: {

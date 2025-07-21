@@ -48,25 +48,28 @@ function saveImageImgur(idClient,objetoRegistro,linkFoto) {
 }
 
 function registrarMedico(medicoObj,linkimgurl) {
-  const data = {
+  const datamedico = {
     action: "register",
     linkimgurl: linkimgurl,
     ...medicoObj,
   };
-  console.log(data);
+  console.log(datamedico);
   fetch("controllers/medicRegister.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(datamedico),
   })
     .then((response) => response.json())
     .then((data) => {
       //console.log(data);
       if (data.success) {
         console.log("respuesta :", data);
+        const dataconfirmarvista = encodeURIComponent(JSON.stringify(datamedico));
+        console.log(dataconfirmarvista);
         alert("Tu registro a sido exitoso");
+        window.location.href = `registroexitoso.html?data=${dataconfirmarvista}`;
         //window.location.href = "gestionPosts.php";
       }
     })
