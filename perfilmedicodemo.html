@@ -24,7 +24,7 @@
 
     <div class="doctor-card">
         <div class="doctor-image">
-            <img src="assets/img/imgcf1.avif" alt="Dr. Alejandro Lam" class="doctor-photo">
+            <img src="assets/img/alejandrolam.avif" alt="Dr. Alejandro Lam" class="doctor-photo">
             <img src="assets/img/logoconsultame01.avif" alt="consultame.pe" class="brand-logo">
         </div>
         <div class="doctor-info">
@@ -36,7 +36,7 @@
             <h2>Dr.Juan Bueno Curando</h2>
             <p class="specialty">CPM:1X2X3 /<span>Pediatría</span></p>
             <p class="specialty">RNE:1X2X3 </p>
-            <p class="title">reseña:</p>
+            <p class="title">Reseña:</p>
             <p class="description">
                 El Dr. Juan Bueno Curando es un médico general con más de 10 años de experiencia en la atención de
                 pacientes. Su experiencia se extiende a una amplia variedad de áreas médicas, lo que le permite
@@ -49,7 +49,7 @@
                 personalizados y efectivos que mejoren su calidad de vida.
             </p>
             <div class="actions">
-                <a href="reservarcita.php?id=1" class="btn-primary">RESERVAR CITA</a>
+                <a href="reservarcita.php?id=1&nombreruta=perfilmedicodemo.html" class="btn-primary">RESERVAR CITA</a>
                 <a href="#" class="btn-secondary">Contactar soporte</a>
             </div>
         </div>
@@ -62,10 +62,6 @@
                 <img src="assets/img/CostoConsulta.png" alt="Icono tarjeta" class="info-icon">
                 <p><strong>Costo de la consulta virtual:</strong><br>S/100.00</p>
             </div>
-            <div class="info-item">
-                <div class="info-icon-placeholder"></div>
-                <p><strong>Costo de la consulta presencial:</strong><br>S/250.00</p>
-            </div>
 
             <div class="info-item">
                 <img src="assets/img/DuracionConsulta.avif" alt="Icono reloj" class="info-icon">
@@ -74,11 +70,12 @@
         </div>
 
         <!-- Card 2: Horarios -->
-        <div class="info-card blue-card">
-            <p class="title">Horarios de atención:</p>
-            <p><strong>Lunes a Domingo presencial:</strong><br>9 AM - 8 PM</p>
-            <p><strong>Lunes a Domingo virtual:</strong><br>9 AM - 8 PM</p>
-        </div>
+        <!-- <div class="info-card blue-card" id="horarios">-->
+        <div class="info-card blue-card" id="horarios">
+        <p><strong>Lunes a Domingo presencial:</strong><br>9 AM - 8 PM</p>
+        <p><strong>Lunes a Domingo virtual:</strong><br>9 AM - 8 PM</p>
+
+    </div>
     </div>
 
     <!-- Sección de pagos -->
@@ -88,8 +85,6 @@
             Las transferencias van directo a las cuentas de tu médico de confianza.<br>
             Usa estos datos para hacer el pago adelantado de tu consulta.
         </p>
-        <h3 class="payment-company">CORPORACION MEDICGO PERU</h3>
-
         <div class="payment-container">
             <!-- Tarjeta 1 -->
             <div class="payment-card">
@@ -99,11 +94,12 @@
                 <p>Cuenta interbancaria<br><strong>00320000300255244033</strong></p>
             </div>
 
-            <!-- Tarjeta 2 -->
+            <!-- Tarjeta 2 
             <div class="payment-card">
                 <p><strong>TRANSFERENCIA / YAPE / PLIN</strong></p>
                 <p># de contacto<br><strong>999 888 777</strong></p>
             </div>
+            -->
         </div>
     </section>
 
@@ -118,7 +114,7 @@
                 <h3>Dr.Juan Bueno Curando</h3>
                 <p class="subtitle">CMP: 1X2X3 / Medicina General</p>
                 <hr>
-                <a href="reservarcita.php?id=1" class="btn">RESERVAR CITA</a>
+                <a href="reservarcita.php?id=1&nombreruta=perfilmedicodemo.html" class="btn">RESERVAR CITA</a>
             </div>
         </div>
 
@@ -131,7 +127,10 @@
         <!-- Mensaje del médico -->
         <div class="mensaje">
             <h2>Un mensaje de <span>tu médico...</span></h2>
-            <p class="quote">"Hola a todos mis pacientes, como su médico, quiero recordarles la importancia de cuidar de su salud en todo momento, especialmente durante estos tiempos difíciles. Si necesitan atención médica, no duden en contactarme y estaré encantado de ayudarles en lo que necesiten. Mantengámonos saludables juntos."</p>
+            <p class="quote">"Hola a todos mis pacientes, como su médico, quiero recordarles la importancia de cuidar de
+                su salud en todo momento, especialmente durante estos tiempos difíciles. Si necesitan atención médica,
+                no duden en contactarme y estaré encantado de ayudarles en lo que necesiten. Mantengámonos saludables
+                juntos."</p>
             <p class="firma">Dr. Juan Bueno Curando</p>
         </div>
 
@@ -143,7 +142,7 @@
     <footer>
         <div class="cntfooter">
             <div>
-                <img src="assets/img/logoconsultame02.avif" alt="">
+                <img src="assets/img/logoconsultame_version01.png" alt="">
                 <a href="https://docs.google.com/document/d/1mxUfgXMDaNDW1YPfTAkC4mSphEhJa8yg-PzceSktccU/edit?tab=t.0"
                     target="_blank">Términos y condiciones</a>
                 <a href="https://docs.google.com/document/d/16AzRutt9CnHTavX5Sn1i6M12zJCDU4tFBS6yIVl-tQ4/edit?tab=t.0"
@@ -183,7 +182,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/interactiveindex.js"></script>
+    <!--<script src="assets/js/perfilmedicodemo.js"></script>-->
 </body>
 
 </html>

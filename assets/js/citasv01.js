@@ -1,5 +1,13 @@
 var formulariocita = document.getElementById("post-form-register");
 var fechasDisponibles = document.getElementById("fechasDisponibles");
+var fechaseleccionada = document.getElementById("fechaSeleccionada");
+var urlParams = new URLSearchParams(window.location.search);
+var idmedico = urlParams.get('id');
+console.log(idmedico);
+
+var horariosdeldoctor = {};
+
+
 formulariocita.addEventListener("submit", function (event) {
   event.preventDefault();
   console.log("submit");
@@ -19,7 +27,7 @@ formulariocita.addEventListener("submit", function (event) {
   });
 
   console.log(objetoCita);
-  var fecha = document.getElementById("fechaCita").value;
+  var fecha = document.getElementById("fechaSeleccionada").value;
   var hora = localStorage.getItem("horaCita");
   // Concatena la fecha y la hora en un solo string
   var fechaHora = fecha + ' ' + hora;
@@ -51,9 +59,10 @@ function validarFechayhora(fecha, objetoCita) {
         console.log("respuesta :el medico esta disponible", data);
         citaaguardar = { fecha, ...objetoCita }
         regitrarcita(citaaguardar);
-      }else{
-        console.log("respuesta :el medico no esta disponible",data);  
-        
+      } else {
+        console.log("respuesta :el medico no esta disponible", data);
+        alert("el medico no esta disponible, por favor elija otra fecha o hora");
+
       }
     })
     .catch((error) => {
@@ -79,14 +88,14 @@ function regitrarcita(objcita) {
     .then((data) => {
       if (data.success) {
         console.log("respuesta :", data);
-        crearlinkzoom(objcita,data.id);
+        crearlinkzoom(objcita, data.id);
       }
     })
     .catch((error) => {
       console.log(error);
     });
 }
-function crearlinkzoom(objcita,id) {
+function crearlinkzoom(objcita, id) {
   console.log("enviando a backend");
   const datos = {
     action: "crearlinkdezoom",
@@ -104,7 +113,7 @@ function crearlinkzoom(objcita,id) {
       if (data.success) {
         console.log("respuesta :", data);
         alert("Cita agendada con exito");
-        guardarlinkenreunion(id,data.link);
+        guardarlinkenreunion(id, data.link);
       }
     })
     .catch((error) => {
@@ -131,7 +140,7 @@ function guardarlinkenreunion(id, link) {
         console.log("respuesta al guardar link:", data);
       }
     })
-  
+
 }
 function crearHorarios() {
   let hora = 9;
@@ -161,8 +170,90 @@ function crearHorarios() {
   }
 }
 
+function ObtenerHorariosDisponibles(idmedico) {
+  fetch("controllers/citas.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      action: "obtenerHorariosdoctor",
+      idMedico: idmedico
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        console.log("respuesta :el medico tiene estos horarios", data);
+        var horarios = JSON.parse(data.horarios[0].horariosemanal);
+        console.log("variable horarios", horarios);
+        console.log("tipo horarios", typeof horarios);
+
+        /*
+        if (typeof horarios === "object" && horarios !== null) {
+          for (const horario of Object.values(horarios)) {
+            console.log(horario.dia);
+          }
+        } else {
+          console.log("horarios no es un objeto");
+        }
+        */
+
+        horariosdeldoctor = horarios;
+
+      } else {
+        console.log("el medico no tiene horarios", data);
+
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+fechaseleccionada.addEventListener("change", function () {
+  //console.log(fechaseleccionada.value);
+  var fecha = new Date(fechaseleccionada.value);
+  //console.log(fecha.getDay());
+  var dia = fecha.getDay();
+  //console.log(dia);
+  var horariosdeldoctorpordia = [];
+
+  for (const horariodia of Object.values(horariosdeldoctor)) {
+    if (horariodia.dia == dia) {
+      horariosdeldoctorpordia.push(horariodia);
+    }
+  }
+
+  if (horariosdeldoctorpordia.length > 0) {
+    console.log("hay horarios disponibles", horariosdeldoctorpordia);
+    let hora = 9;
+    let minuto = 0;
+    fechasDisponibles.innerHTML = "";
+    for (const horario of horariosdeldoctorpordia) {
+      const div = document.createElement("div");
+      let primeraHora = horario.hora.split(" - ")[0];
+      div.textContent = primeraHora;
+      div.className = "btn btn-outline-secondary btn-lg";
+      fechasDisponibles.appendChild(div);
+
+      div.addEventListener("click", function () {
+        localStorage.setItem("horaCita", div.textContent);
+        alert("hora seleccionada: " + div.textContent + "\nenvie los datos ");
+        console.log("click", div.textContent);
+        console.log(fechaseleccionada.value);
+      })
+    }
+  } else {
+    fechasDisponibles.innerHTML = "";
+    console.log("no hay horarios disponibles");
+    fechasDisponibles.innerHTML = "El medico no tiene horarios disponibles para la fecha seleccionada";
+
+  }
+
+});
 
 document.addEventListener("DOMContentLoaded", function () {
-  crearHorarios();
-  localStorage.removeItem("horaCita");
+  //crearHorarios();
+  ObtenerHorariosDisponibles(idmedico);
 });

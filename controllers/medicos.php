@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     case 'crearPerfil':
       try {
         //$medico = $data['medico'];
-        $nombres = $data['completename'];
-        $apellidos = $data['apellidosDoctores'];
+        $nombres = $data['Name'];
+        $apellidos = $data['apellidos'];
         $nombres_separados = explode(" ", $nombres);
         $apellidos_separados = explode(" ", $apellidos);
         /*
@@ -243,11 +243,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </ul>
                     </nav>
                 </header>
-
+              <input type="hidden" id="idMedico" value="'.$data['idMedico'].'"> 
               <div class="doctor-card">
                   <div class="doctor-image">
-                      <img src="' . $data['LinkFoto'] . '" alt="" class="doctor-photo">
-                      <img src="../assets/img/logoconsultame_version01.png" alt="consultame.pe" class="brand-logo">
+                      <img src="' . $data['linkimgurl'] . '" alt="" class="doctor-photo">
+                      <img src="../assets/img/logoconsultame01.avif" alt="consultame.pe" class="brand-logo">
                   </div>
                   <div class="doctor-info">
                         <!--<div class="medicgo">
@@ -255,15 +255,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                               <p></p>
                           </div>
                           -->
-                      <h2>Dr. ' . $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h2>
+                      <h2>'.$data['prefijo']. $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h2>
                       <p class="specialty">CPM:' . $data['cmp'] . ' / <span>' . $data['especialidad'] . '</span></p>
                       <p class="specialty">RNE:' . $data['rne'] . '</p>
                       <p class="title">reseña:</p>
                       <p class="description">
-                          ' . $data['Resenia'] . '
+                          ' . $data['reseniaDoctor'] . '
                       </p>
                       <div class="actions">
-                          <a href="../reservarcita.php?id=' . $data['idMedico'] . '" class="btn-primary">RESERVAR CITA</a>
+                          <a href="../reservarcita.php?id=' . $data['idMedico'] . '&nombreruta=' . strtolower($nombres_separados[0] . $apellidos_separados[0]) . '" class="btn-primary">RESERVAR CITA</a>
                           <a href="#" class="btn-secondary">Contactar soporte</a>
                       </div>
                   </div>
@@ -283,15 +283,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                       <div class="info-item">
                           <img src="../assets/img/DuracionConsulta.avif" alt="Icono reloj" class="info-icon">
-                          <p><strong>Duracion de la consulta:</strong><br>' . $data['tiempoEnMinConsulta'] . ' minutos</p>
+                          <p><strong>Duracion de la consulta:</strong><br>' . $data['tiempoConsulta'] . ' minutos</p>
                       </div>
                   </div>
 
                   <!-- Card 2: Horarios -->
-                  <div class="info-card blue-card">
+                  <div class="info-card blue-card" id="horarios">
+                      <!-- 
                       <p class="title">Horarios de atención:</p>
                       <p><strong>Lunes a Domingo presencial:</strong><br>9 AM - 8 PM</p>
                       <p><strong>Lunes a Domingo virtual:</strong><br>9 AM - 8 PM</p>
+                      -->
                   </div>
               </div>
 
@@ -302,12 +304,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       Las transferencias van directo a las cuentas de tu médico de confianza.<br>
                       Usa estos datos para hacer el pago adelantado de tu consulta.
                   </p>
-                  <h3 class="payment-company">CORPORACION MEDICGO PERU</h3>
+                  <!--<h3 class="payment-company">CORPORACION MEDICGO PERU</h3>-->
 
                   <div class="payment-container">
                       <!-- Tarjeta 2 -->
                       <div class="payment-card">
-                          <p><strong>' . $data['metodoDePago'] . '</strong></p>
+                          <p><strong>' . $data['metodoPago'] . '</strong></p>
                       </div>
                   </div>
               </section>
@@ -320,10 +322,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                           <img src="../assets/img/logoconsultame03.webp" alt="Logo Consultame">
                       </div>
                       <div class="info">
-                          <h3>DR ' . $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h3>
+                          <h3>' .$data['prefijo']. $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h3>
                           <p class="subtitle">CMP:' . $data['cmp'] . ' / ' . $data['especialidad'] . '</p>
                           <hr>
-                          <a href="../reservarcita.php?id=' . $data['idMedico'] . '" class="btn">RESERVAR CITA</a>
+                          <a href="../reservarcita.php?id=' . $data['idMedico'] . '&nombreruta=' . strtolower($nombres_separados[0] . $apellidos_separados[0]) . '" class="btn">RESERVAR CITA</a>
                       </div>
                   </div>
 
@@ -336,7 +338,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <!-- Mensaje del médico -->
                   <div class="mensaje">
                       <h2>Un mensaje de <span>tu médico...</span></h2>
-                      <p class="quote">"' . $data['mensajePacientes'] . '"</p>
+                      <p class="quote">"' . $data['mensajeFpaciente'] . '"</p>
                       <p class="firma">Dr.' . $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</p>
                   </div>
 
@@ -383,7 +385,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </div>
               </footer>
 
-              <script src="../assets/js/interactiveindex.js"></script>
+              <script src="../assets/js/perfilmedicodemo.js"></script>
           </body>
 
         </html>
@@ -405,7 +407,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       break;
     default:
-      echo json_encode(['success' => false]);
+      echo json_encode(['success' => false, 'message' => 'Acción no reconocida']);
       break;
   }
 }

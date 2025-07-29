@@ -1073,6 +1073,11 @@ input[type="submit"]:hover {
     .cntfooter {
         grid-template-columns: 1fr;
         text-align: center;
+    }   
+    .cntfooter div img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

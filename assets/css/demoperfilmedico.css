@@ -70,7 +70,7 @@ header nav ul li a:hover {
     flex: 1 1 300px;
     max-width: 500px;
     border-radius: 20px;
-    background-color: #5778FA;
+    background-color: #8a8989;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -79,8 +79,9 @@ header nav ul li a:hover {
 }
 
 .doctor-photo {
-    width: 100%;
-    height: auto;
+    width: 440px;
+    height: 400px;
+    object-fit: cover;
     border-radius: 15px;
 }
 

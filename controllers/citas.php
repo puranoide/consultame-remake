@@ -100,7 +100,24 @@ function Registercita($con, $cita)
     $result = mysqli_stmt_execute($stmt);
     return $result;
 }
+function obtenerHorariosdoctor($con, $id)
+{
+    $sql = "SELECT horariosemanal FROM medico WHERE idMedico = ?";
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $horarios = [];
 
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $horarios[] = $row;
+        }
+        return $horarios;
+    } else {
+        return false;
+    }
+}
 // Verify if receiving POST request with JSON
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Set response header as JSON
@@ -177,6 +194,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo json_encode(['success' => true, 'message' => 'registro exitoso']);
                 } else {
                     echo json_encode(['success' => false, 'message' => 'registro fallido']);
+                }
+            } catch (Exception $e) {
+                echo json_encode(['error' => $e->getMessage()]);
+            }
+            break;
+        case 'obtenerHorariosdoctor':
+            if (!$conexion) {
+                echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
+                exit;
+            }
+            try {
+                $response = obtenerHorariosdoctor($conexion, $data['idMedico']);
+                if ($response) {
+                    echo json_encode(['success' => true, 'message' => 'horarios obtenidos', 'horarios' => $response, 'id' => $data['idMedico']]);
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'No se pudo obtener los horarios',"response" => $response, 'id' => $data['idMedico']]);
                 }
             } catch (Exception $e) {
                 echo json_encode(['error' => $e->getMessage()]);

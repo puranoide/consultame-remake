@@ -14,16 +14,48 @@
             font-size: 0.8rem;
             /* Cambia el tamaño según tu preferencia */
         }
+
+        #tablaHorarios table {
+            font-size: 12px;
+            /* Tamaño más pequeño de texto */
+        }
+
+        #tablaHorarios th,
+        #tablaHorarios td {
+            padding: 0.25rem !important;
+            /* Menor espaciado */
+        }
+
+        .celda-cita {
+            min-width: 50px;
+            /* Tamaño mínimo de celda */
+            height: 30px;
+            line-height: 1.2;
+        }
+
+        .celda-cita:hover {
+            background-color: #e9ecef;
+        }
+
+        .celda-cita.bg-success:hover {
+            background-color: #157347 !important;
+        }
     </style>
 </head>
 
-<body>
+<body id="body">
     <!--header-->
     <ul class="nav justify-content-center bg-primary">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page"><img src="assets/img/Consultame-Logo-blanco.png" style="width: 200px;margin-top:40px;" alt=""></a>
         </li>
     </ul>
+
+    <!-- Loader -->
+    <div id="loader">
+
+    </div>
+
     <!--contenido-->
     <form action="#" method="post" enctype="multipart/form-data" id="post-form-register">
         <section class="vh-100 gradient-custom">
@@ -36,6 +68,17 @@
                                     <h2 class="fw-bold mb-2 text-uppercase text-dark">registro médico consúltame.pe</h2>
                                     <p class="text-dark mb-5 mt-5">Al dejar tus datos, recibirás un contacto personalizado de nuestro equipo para validar tu perfil, este servicio es exclusivo para profesionales de la salud.</p>
 
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <label class="form-label text-dark fw-bold" for="seleccionHoras">Prefijo</label>
+                                        <select class="form-select custom-placeholder" aria-label="Default select example" name="prefijo" required>
+                                            <option value="" selected>Seleccione un prefijo</option>
+                                            <option value="Dr.">Dr.</option>
+                                            <option value="Dra.">Dra.</option>
+                                            <option value="Lic.">Lic.</option>
+                                            <option value="PsyD.">PsyD.</option>
+                                            <option value="">Ninguno</option>
+                                        </select>
+                                    </div>
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
                                         <label class="form-label text-dark fw-bold" for="completeName">Nombres</label>
                                         <input type="text" id="completeName" class="form-control form-control-lg custom-placeholder" name="Name" placeholder="Nombres" required />
@@ -74,8 +117,7 @@
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
                                         <label class="form-label text-dark fw-bold" for="metodoPago">Método de pago para pacientes</label>
                                         <textarea required id="metodoPago" class="form-control form-control-lg custom-placeholder" name="metodoPago" placeholder="TITULAR Y DNI + CUENTAS BANCARIAS
-YAPE / PLIN / OTRO
-"></textarea>
+            YAPE / PLIN / OTRO"></textarea>
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
@@ -94,10 +136,9 @@ YAPE / PLIN / OTRO
                                             <span class="input-group-text">minutos</span>
                                         </div>
                                     </div>
-
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
-                                        <label class="form-label text-dark fw-bold" for="horarioConsulta">Horario de consulta</label>
-                                        <textarea id="horarioConsulta" class="form-control form-control-lg custom-placeholder" name="horarioConsulta" placeholder="Horario de consulta" required></textarea>
+                                        <label class="form-label text-dark fw-bold" for="horarios">Horario de consulta</label>
+                                        <div id="tablaHorarios"></div>
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline form-white mb-4">
