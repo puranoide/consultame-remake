@@ -391,11 +391,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </html>
                     ';
         $nombredoctorruta = strtolower($nombres_separados[0] . $apellidos_separados[0]);
-        $dir = '/' . $nombredoctorruta . '/';
+        $dir = '../' . $nombredoctorruta . '/';
         if (!file_exists($dir)) {
           mkdir($dir, 0777, true);
         }
-        $file = '/' . $nombredoctorruta . '/index.html';
+        $file = '../' . $nombredoctorruta . '/index.html';
         if (file_put_contents($file, $htmlvs2) !== false) {
           echo json_encode(['success' => true, 'message' => 'perfil de medico creado en ' . $file]);
         } else {
