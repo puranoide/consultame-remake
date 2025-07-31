@@ -74,12 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </ul>
                 </nav>
               </header>
-
+              <input type="hidden" id="idMedico" value="">
               <div class="container-info-doctor">
                 <div class="cntimagenmedico">
                   <img
                     class="imagenmedico"
-                    src="' . $medico['LinkFoto'] . '"
+                    src="' . $medico['linkimgurl'] . '"
                     alt=""
                     srcset=""
                   />
@@ -243,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </ul>
                     </nav>
                 </header>
-              <input type="hidden" id="idMedico" value="'.$data['idMedico'].'"> 
+              <input type="hidden" id="idMedico" value="' . $data['idMedico'] . '"> 
               <div class="doctor-card">
                   <div class="doctor-image">
                       <img src="' . $data['linkimgurl'] . '" alt="" class="doctor-photo">
@@ -255,7 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                               <p></p>
                           </div>
                           -->
-                      <h2>'.$data['prefijo']. $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h2>
+                      <h2>' . $data['prefijo'] . $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h2>
                       <p class="specialty">CPM:' . $data['cmp'] . ' / <span>' . $data['especialidad'] . '</span></p>
                       <p class="specialty">RNE:' . $data['rne'] . '</p>
                       <p class="title">reseña:</p>
@@ -322,7 +322,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                           <img src="../assets/img/logoconsultame03.webp" alt="Logo Consultame">
                       </div>
                       <div class="info">
-                          <h3>' .$data['prefijo']. $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h3>
+                          <h3>' . $data['prefijo'] . $nombres_separados[0] . ' ' . $apellidos_separados[0] . '</h3>
                           <p class="subtitle">CMP:' . $data['cmp'] . ' / ' . $data['especialidad'] . '</p>
                           <hr>
                           <a href="../reservarcita.php?id=' . $data['idMedico'] . '&nombreruta=' . strtolower($nombres_separados[0] . $apellidos_separados[0]) . '" class="btn">RESERVAR CITA</a>

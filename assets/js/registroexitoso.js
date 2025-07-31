@@ -11,11 +11,13 @@ console.log(doctor.horarios)
 //console.log(horario)
 const horarios = JSON.parse(doctor.horarios);
 console.log(horarios)
+const prefijo = document.getElementById("prefijo");
 const nombrecomponente = document.getElementById("nombreDoctor");
 const emailcomponente = document.getElementById("emailDoctor");
 
 nombrecomponente.innerHTML = doctor.Name || "";
 emailcomponente.innerHTML = doctor.email || "";
+prefijo.innerHTML = doctor.prefijo || "";
 
 function generarPerfilMedico(medicoObj) {
     const datos = {
