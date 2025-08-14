@@ -5,7 +5,7 @@ $idConsulta = $_POST['id_consulta'];
 
 
 $sql="
-SELECT*FROM Consulta JOIN Paciente on Consulta.id_paciente=Paciente.id_paciente join Medico on Consulta.id_medico=Medico.idMedico WHERE Consulta.id_consulta='$idConsulta';
+SELECT*FROM Consulta JOIN Paciente on Consulta.id_paciente=Paciente.id_paciente join medico on Consulta.id_medico=medico.idMedico WHERE Consulta.id_consulta='$idConsulta';
 ";
 $result_consultas = $conexion->query($sql);
 
