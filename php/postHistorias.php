@@ -34,18 +34,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($conexion->query($addConsultaQuery) === TRUE) {
                 echo '<script>
                         alert("Usuario y consulta registrados correctamente");
-                        window.location="../Panel.php";
+                        window.location="../panel.php";
                     </script>';
             } else {
                 echo '<script>
                         alert("Usuario registrado correctamente, pero no se pudo registrar la consulta");
-                        window.location="../Panel.php";
+                        window.location="../panel.php";
                     </script>';
             }
         } else {
             echo '<script>
                     alert("Error al agregar usuario");
-                    window.location="../Panel.php";
+                    window.location="../panel.php";
                 </script>';
         }
     } else {
@@ -62,12 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($conexion->query($addConsultaQuery) === TRUE) {
             echo '<script>
                     alert("Consulta registrada correctamente");
-                    window.location="../Panel.php";
+                    window.location="../panel.php";
                 </script>';
         } else {
             echo '<script>
                     alert("Error al registrar la consulta");
-                    window.location="../Panel.php";
+                    window.location="../panel.php";
                 </script>';
         }
     }

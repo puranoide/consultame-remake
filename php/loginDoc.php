@@ -15,7 +15,7 @@ if ($consulta_usuario) {
         $_SESSION['apellidosDoctores'] = $usuario['apellidosDoctores']; // Esto estaba faltando
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['cmp'] = $usuario['cmp'];
-        header('location:../Panel.php');
+        header('location:../panel.php');
         exit();
     } else {
         echo '

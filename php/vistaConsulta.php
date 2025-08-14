@@ -47,7 +47,7 @@ $result_consultas = $conexion->query($sql);
     <!-- fin header-->
 
 
-    <form action="../Panel.php" method="post">
+    <form action="../panel.php" method="post">
     <?php
             if ($result_consultas->num_rows > 0) {
                 while ($row = $result_consultas->fetch_assoc()) {

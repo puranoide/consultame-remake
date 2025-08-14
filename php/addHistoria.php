@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="card-body p-5 text-center">
                             <div class="row mb-4">
                                 <div class="col-md-6 mt-5">
-                                    <button type="button" class="btn btn-outline-danger btn-lg px-5 btn-top-left" onclick="window.location.href='../Panel.php'">Volver</button>
+                                    <button type="button" class="btn btn-outline-danger btn-lg px-5 btn-top-left" onclick="window.location.href='../panel.php'">Volver</button>
                                 </div>
                             </div>
                             <div class="md-5 mt-md-4 mb-4">
