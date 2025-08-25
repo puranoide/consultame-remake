@@ -26,7 +26,7 @@ formulariocita.addEventListener("submit", function (event) {
     }
   });
 
-  console.log(objetoCita);
+  //console.log(objetoCita);
   var fecha = document.getElementById("fechaSeleccionada").value;
   var hora = localStorage.getItem("horaCita");
   // Concatena la fecha y la hora en un solo string
@@ -34,7 +34,7 @@ formulariocita.addEventListener("submit", function (event) {
 
   // Formatea la fecha y hora en un formato compatible con MySQL
   var fechaHoraFormateada = fechaHora.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/, '$1-$2-$3 $4:$5:00');
-  console.log(fechaHoraFormateada);
+  //console.log(fechaHoraFormateada);
   validarFechayhora(fechaHoraFormateada, objetoCita);
   //regitrarcita(objetoCita);
 });
@@ -87,7 +87,7 @@ function regitrarcita(objcita) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("respuesta :", data);
+        console.log("respuesta al guardar cita sin link :", data);
         crearlinkzoom(objcita, data.id);
       }
     })
@@ -111,16 +111,16 @@ function crearlinkzoom(objcita, id) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("respuesta :", data);
+        console.log("respuesta al momento de actualizar la cita para agregar el link :", data);
         alert("Cita agendada con exito");
-        guardarlinkenreunion(id, data.link);
+        guardarlinkenreunion(id, data.link, datos);
       }
     })
     .catch((error) => {
       console.log(error);
     });
 }
-function guardarlinkenreunion(id, link) {
+function guardarlinkenreunion(id, link, datosdereunion) {
   console.log("enviando a backend");
   const datos = {
     action: "guardarlinkenreunion",
@@ -137,7 +137,11 @@ function guardarlinkenreunion(id, link) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("respuesta al guardar link:", data);
+        console.log("respuesta al guardar link:", data, datosdereunion);
+        const linkparajson = link;
+        const datosdereunionjson = encodeURIComponent(JSON.stringify({...datosdereunion, linkparajson}));
+        console.log(datosdereunionjson);
+        window.location.href = `reservaexitosa.html?data=${datosdereunionjson}`;
       }
     })
 

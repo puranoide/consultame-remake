@@ -118,6 +118,40 @@ function obtenerHorariosdoctor($con, $id)
         return false;
     }
 }
+
+function enviarcorreo($data)
+{
+    $email = $data['email'];
+    $nombres = $data['nombre'];
+    $mensaje = "Hola hemos recidido tus datos para tu cita medica con fecha:" . $data['fecha'] . "podras unirte a tu cita mediante zoom en el siguiente link: " . $data['linkparajson'];
+    if (empty($nombres) || empty($email) || empty($mensaje)) {
+        return false;
+        exit;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+        exit;
+    }
+
+    // Sanitizar el correo electrónico
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    // Datos del correo
+    $para = $data['email'];
+    $asunto = "Cita medica Consultame.pe";
+    $cabecera = "From: no-reply@consultame.pe";
+    $mail = mail($para, $asunto, $mensaje, $cabecera);
+
+    // Enviar el correo
+    if ($mail) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 // Verify if receiving POST request with JSON
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Set response header as JSON
@@ -209,7 +243,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($response) {
                     echo json_encode(['success' => true, 'message' => 'horarios obtenidos', 'horarios' => $response, 'id' => $data['idMedico']]);
                 } else {
-                    echo json_encode(['success' => false, 'message' => 'No se pudo obtener los horarios',"response" => $response, 'id' => $data['idMedico']]);
+                    echo json_encode(['success' => false, 'message' => 'No se pudo obtener los horarios', "response" => $response, 'id' => $data['idMedico']]);
+                }
+            } catch (Exception $e) {
+                echo json_encode(['error' => $e->getMessage()]);
+            }
+            break;
+        case 'enviarcorreo':
+            if (!$conexion) {
+                echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
+                exit;
+            }
+            try {
+                $response = enviarcorreo($data);
+                if ($response) {
+                    echo json_encode(['success' => true, 'message' => 'correo enviado']);
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'correo no enviado']);
                 }
             } catch (Exception $e) {
                 echo json_encode(['error' => $e->getMessage()]);
