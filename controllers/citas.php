@@ -123,7 +123,7 @@ function enviarcorreo($data)
 {
     $email = $data['email'];
     $nombres = $data['nombre'];
-    $mensaje = "Hola hemos recidido tus datos para tu cita medica con fecha:" . $data['fecha'] . "podras unirte a tu cita mediante zoom en el siguiente link: " . $data['linkparajson'];
+    $mensaje = "Hola " . $nombres . ",\n\nHemos recibido tus datos para tu cita medica con fecha: " . $data['fecha'] . ".\n\nPodras unirte a tu cita mediante zoom en el siguiente link: " . $data['linkparajson'];
     if (empty($nombres) || empty($email) || empty($mensaje)) {
         return false;
         exit;
