@@ -92,11 +92,11 @@ function validardisponibilidad($con, $fecha, $idMedico)
         return false;
     }
 }
-function Registercita($con, $cita)
+function Registercita($con, $cita, $rutaarchivo)
 {
-    $sql = "INSERT INTO citasform ( dni,email,idmedico,motivo,nombre,telefono,fechayhora) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO citasform ( dni,email,idmedico,motivo,nombre,telefono,fechayhora,rutaarchivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($con, $sql);
-    mysqli_stmt_bind_param($stmt, "ssissis", $cita['dni'], $cita['email'], $cita['idMedico'], $cita['motivo'], $cita['nombre'], $cita['telefono'], $cita['fecha']);
+    mysqli_stmt_bind_param($stmt, "ssississ", $cita['dni'], $cita['email'], $cita['idMedico'], $cita['motivo'], $cita['nombre'], $cita['telefono'], $cita['fecha'], $rutaarchivo);
     $result = mysqli_stmt_execute($stmt);
     return $result;
 }
@@ -151,40 +151,120 @@ function enviarcorreo($data)
     }
 }
 
+function obtenermedico($con, $id)
+{
+    $sql = "SELECT*FROM medico WHERE idMedico = ?";
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+
+
+function guardarArchivo($con, $archivo, $datoscita)
+{
+
+    $carpetadestino = "../vouchers/";
+
+    $namearchivo = basename($archivo['name']);
+
+    // Verificar si la carpeta existe, si no, crearla
+    if (!file_exists($carpetadestino)) {
+        mkdir($carpetadestino, 0777, true);
+    }
+
+    if (!$con) {
+        return false;
+    }
+    try {
+        $medico = obtenermedico($con, $datoscita['idMedico']);
+        if ($medico) {
+            $nombreDoctor = $medico['completename'];
+
+            // Formatear la fecha para que sea válida en el nombre del archivo
+            $fechaOriginal = $datoscita['fecha'];
+            $fechaFormateada = str_replace([':', ' '], ['-', '_'], $fechaOriginal);
+
+            // Construir el nombre del archivo
+            $extension = pathinfo($namearchivo, PATHINFO_EXTENSION);
+            $nombreArchivo = $nombreDoctor . "_" . $fechaFormateada . "." . $extension;
+
+            // Ruta completa
+            $rutaArchivo = $carpetadestino . $nombreArchivo;
+
+            // Crear la carpeta si no existe
+            if (!is_dir($carpetadestino)) {
+                mkdir($carpetadestino, 0777, true);
+            }
+
+            // Mover el archivo
+            if (move_uploaded_file($archivo['tmp_name'], $rutaArchivo)) {
+                return $rutaArchivo;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } catch (\Throwable $th) {
+        return false;
+    }
+}
+
 
 // Verify if receiving POST request with JSON
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Set response header as JSON
     header('Content-Type: application/json');
 
-    // Decode received JSON
+    include_once('db.php');
+    // Si viene multipart/form-data (con archivos)
+    if (isset($_POST['action']) && $_POST['action'] === 'registrarCita') {
+        $action = $_POST['action'];
+        switch ($action) {
+            case 'registrarCita':
+                if (!$conexion) {
+                    echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
+                    exit;
+                }
+                if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
+                    $guardararchivo = guardarArchivo($conexion, $_FILES['archivo'], $_POST);
+                    if ($guardararchivo) {
+                        $response = Registercita($conexion, $_POST, $guardararchivo);
+                        if ($response) {
+                            echo json_encode([
+                                'success' => true,
+                                'message' => 'registro exitoso',
+                                'id' => $conexion->insert_id
+                            ]);
+                        } else {
+                            echo json_encode(['success' => false, 'message' => 'registro fallido']);
+                        }
+                    } else {
+                        echo json_encode(['success' => false, 'message' => 'fallo en guardar el archivo']);
+                    }
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'No se recibió archivo']);
+                }
+                break;
+        }
+        exit; // 👈 MUY IMPORTANTE, para que no intente decodificar JSON más abajo
+    }
+    // Validate received data    
+    // Si no es registrarCita, entonces sí espero JSON
     $data = json_decode(file_get_contents("php://input"), true);
     if (json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(['error' => 'Invalid JSON']);
         exit;
     }
 
-    // Validate received data    
-
-    include_once('db.php');
     switch ($data['action']) {
-        case 'registrarCita':
-            if (!$conexion) {
-                echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
-                exit;
-            }
-            try {
-                $response = Registercita($conexion, $data);
-
-                if ($response) {
-                    echo json_encode(['success' => true, 'message' => 'registro exitoso', 'id' => $conexion->insert_id]);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'registro fallido']);
-                }
-            } catch (Exception $e) {
-                echo json_encode(['error' => $e->getMessage()]);
-            }
-            break;
         case 'validarFechayhora':
             if (!$conexion) {
                 echo json_encode(['error' => 'No se pudo conectar a la base de datos']);

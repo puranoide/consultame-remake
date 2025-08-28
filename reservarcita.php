@@ -32,7 +32,7 @@ $rutamedico = $_GET['nombreruta'];
   </header>
 
   <div class="container text-center py-5">
-    <a  href="<?php echo $rutamedico; ?>" class="btn btn-primary w-100 w-md-auto">Volver al perfil de tu medico</a>
+    <a href="<?php echo $rutamedico; ?>" class="btn btn-primary w-100 w-md-auto">Volver al perfil de tu medico</a>
   </div>
 
   <div class="container py-5">
@@ -44,7 +44,7 @@ $rutamedico = $_GET['nombreruta'];
           <p class="text-muted mb-4">
             Completa tus datos para que un asesor de Consúltame.pe programe una cita con tu médico de confianza.
           </p>
-          <form id="post-form-register">
+          <form id="post-form-register" enctype="multipart/form-data"  method="POST">
             <input type="hidden" name="idMedico" value="<?php echo $idMedico; ?>">
 
             <div class="mb-3">
@@ -71,7 +71,10 @@ $rutamedico = $_GET['nombreruta'];
               <label for="motivo" class="form-label">Explica el motivo de tu consulta *</label>
               <textarea name="motivo" class="form-control" id="motivo" rows="3" required></textarea>
             </div>
-
+            <div data-mdb-input-init class="mb-3">
+              <label class="form-label" for="linkFoto">Tu fotografía</label>
+              <input type="file" id="linkFoto" class="form-control form-control-lg custom-placeholder" name="linkFoto" placeholder="Enlace de fotografía en buena resolución" required />
+            </div>
             <button type="submit" class="btn btn-primary w-100">Enviar</button>
           </form>
         </div>
@@ -82,7 +85,7 @@ $rutamedico = $_GET['nombreruta'];
         <h4 class="fw-bold mb-3">Fechas disponibles</h4>
         <input type="date" class="form-control" id="fechaSeleccionada">
         <div id="fechasDisponibles" class="d-flex flex-wrap gap-2 mt-3 text-dark">
-          
+
         </div>
       </div>
     </div>

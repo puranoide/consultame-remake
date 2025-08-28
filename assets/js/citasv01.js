@@ -4,7 +4,6 @@ var fechaseleccionada = document.getElementById("fechaSeleccionada");
 var urlParams = new URLSearchParams(window.location.search);
 var idmedico = urlParams.get('id');
 console.log(idmedico);
-
 var horariosdeldoctor = {};
 
 
@@ -12,6 +11,8 @@ formulariocita.addEventListener("submit", function (event) {
   event.preventDefault();
   console.log("submit");
   const formData = new FormData(this);
+  const inputarchivo = document.getElementById("linkFoto");
+  const archivo = inputarchivo.files[0]; // archivo real
   objetoCita = {};
   const inputs = document.querySelectorAll(
     "#post-form-register input, #post-form-register textarea"
@@ -34,13 +35,13 @@ formulariocita.addEventListener("submit", function (event) {
 
   // Formatea la fecha y hora en un formato compatible con MySQL
   var fechaHoraFormateada = fechaHora.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/, '$1-$2-$3 $4:$5:00');
-  //console.log(fechaHoraFormateada);
-  validarFechayhora(fechaHoraFormateada, objetoCita);
+  console.log(fechaHoraFormateada, objetoCita, archivo);
+  validarFechayhora(fechaHoraFormateada, objetoCita, archivo);
   //regitrarcita(objetoCita);
 });
 
 
-function validarFechayhora(fecha, objetoCita) {
+function validarFechayhora(fecha, objetoCita, archivo) {
 
   fetch("controllers/citas.php", {
     method: "POST",
@@ -57,7 +58,7 @@ function validarFechayhora(fecha, objetoCita) {
     .then((data) => {
       if (data.success) {
         console.log("respuesta :el medico esta disponible", data);
-        citaaguardar = { fecha, ...objetoCita }
+        citaaguardar = { fecha, archivo, ...objetoCita }
         regitrarcita(citaaguardar);
       } else {
         console.log("respuesta :el medico no esta disponible", data);
@@ -66,23 +67,28 @@ function validarFechayhora(fecha, objetoCita) {
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log("error", error);
     });
 
 }
 
 function regitrarcita(objcita) {
   console.log("enviando a backend");
-  const datos = {
-    action: "registrarCita",
-    ...objcita,
-  };
+  const formData = new FormData();
+  formData.append("action", "registrarCita");
+
+  // agregar todos los datos del objeto
+  for (const [key, value] of Object.entries(objcita)) {
+    // si es archivo lo agregamos tal cual
+    if (key === "archivo") {
+      formData.append("archivo", value); // 👈 este debe coincidir con el name del input
+    } else {
+      formData.append(key, value);
+    }
+  }
   fetch("controllers/citas.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(datos),
+    body: formData,
   })
     .then((response) => response.json())
     .then((data) => {
@@ -139,7 +145,7 @@ function guardarlinkenreunion(id, link, datosdereunion) {
       if (data.success) {
         console.log("respuesta al guardar link:", data, datosdereunion);
         const linkparajson = link;
-        const datosdereunionjson = encodeURIComponent(JSON.stringify({...datosdereunion, linkparajson}));
+        const datosdereunionjson = encodeURIComponent(JSON.stringify({ ...datosdereunion, linkparajson }));
         console.log(datosdereunionjson);
         window.location.href = `reservaexitosa.html?data=${datosdereunionjson}`;
       }
